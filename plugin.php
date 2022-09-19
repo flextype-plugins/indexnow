@@ -10,6 +10,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use function Flextype\console;
 use function Flextype\registry;
 use function Flextype\emitter;
+use function Flextype\entries;
 use function Flextype\cache;
 use function Flextype\app;
 use function Flextype\fetch;
@@ -36,18 +37,21 @@ console()->add(new IndexnowCommand());
 
 /** 
  * Indexnow
+ * @param string $id Entry ID.
  */
 function indexnow(string $id) {
     $settings = registry()->get('plugins.indexnow.settings');
 
     foreach ($settings['engines'] as $name => $engine) {
-        $result[$name] = fetch($engine['url'] . '?url=' . registry()->get('plugins.indexnow.settings.site_url') . '/' . $id . (registry()->get('plugins.indexnow.settings.trailing_slash') ? '/' : '') . '&key=' . $settings['key']);
+        $result[$name] = fetch($engine['url'] . '?url=' . $settings['site_url'] . '/' . $id . (($settings['trailing_slash'] == true) ? '/' : '') . '&key=' . $settings['key']);
     }
 
     return $result;
 }
 
-
+/** 
+ * Add events listeners
+ */
 emitter()->addListener('onEntriesCreate', fn () => indexnow(entries()->registry()->get('methods.create.params.id')));
 emitter()->addListener('onEntriesDelete', fn () => indexnow(entries()->registry()->get('methods.delete.params.id')));
 emitter()->addListener('onEntriesCopy', fn () => indexnow(entries()->registry()->get('methods.copy.params.id')));
