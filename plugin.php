@@ -2,19 +2,23 @@
 
 declare(strict_types=1);
 
+/**
+ * Copyright (c) Sergey Romanenko (https://awilum.github.io)
+ *
+ * Licensed under The MIT License.
+ *
+ * For full copyright and license information, please see the LICENSE
+ * Redistributions of files must retain the above copyright notice.
+ */
+
 namespace Flextype\Plugin\Indexnow;
 
 use Flextype\Plugin\Indexnow\Console\Commands\Indexnow\IndexnowCommand;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
 use function Flextype\console;
 use function Flextype\registry;
 use function Flextype\emitter;
 use function Flextype\entries;
-use function Flextype\cache;
-use function Flextype\app;
 use function Flextype\fetch;
-use function Glowy\Strings\strings;
 
 /**
  * Ensure vendor libraries exist

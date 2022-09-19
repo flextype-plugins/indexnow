@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
- /**
- * Flextype - Hybrid Content Management System with the freedom of a headless CMS 
- * and with the full functionality of a traditional CMS!
- * 
+/**
  * Copyright (c) Sergey Romanenko (https://awilum.github.io)
  *
  * Licensed under The MIT License.
@@ -26,16 +23,14 @@ use function Thermage\div;
 use function Thermage\renderToString;
 use function Flextype\registry;
 use function Flextype\entries;
-use function Glowy\Filesystem\filesystem;
 use function Glowy\Strings\strings;
-use function Flextype\Plugin\Twig\twig;
 
 class IndexnowCommand extends Command
 {
     protected function configure(): void
     {
         $this->setName('indexnow');
-        $this->setDescription('index now.');
+        $this->setDescription('Notifying search engines using indexnow protocol whenever their website content is changed.');
         $this->addArgument('id', InputArgument::OPTIONAL, 'Unique identifier of the entry.');
         $this->addArgument('options', InputArgument::OPTIONAL, 'Options array.');
         $this->addOption('site-url', null, InputOption::VALUE_REQUIRED, 'Site url (without trailing).');
@@ -81,7 +76,7 @@ class IndexnowCommand extends Command
             )
         );
 
-        // Get data from mock
+        // Get data from mock file
         //$entries = json_decode(file_get_contents(FLEXTYPE_ROOT_DIR . '/mock.json'), true);
         
         $entries = entries()->fetch($id, $options)->toArray();
