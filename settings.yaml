@@ -1,0 +1,24 @@
+# enabled: true or false to disable the plugin
+enabled: true
+
+# Indexnow plugin priority
+priority: 100
+
+engines:
+  yandex:
+    url: https://yandex.com/indexnow
+  bing:
+    url: https://www.bing.com/indexnow
+  indexnow:
+    url: https://api.indexnow.org/indexnow
+  seznam:
+    url: https://search.seznam.cz/indexnow
+    
+# Api key
+key: 
+
+# Site url (without trailing slash)
+site_url: ''
+
+# Trailing slash
+trailing_slash: true

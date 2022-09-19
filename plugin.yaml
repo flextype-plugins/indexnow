@@ -1,0 +1,19 @@
+name: Indexnow
+version: 1.0.0
+description: Indexnow is a small Flextype plugin for quickly notifying search engines using indexnow protocol whenever their website content is changed.
+author:
+  name: Sergey Romanenko
+  email: awilum@msm.com
+  url: https://awilum.github.io
+homepage: https://awilum.github.io/flextype/downloads/extend/plugins/indexnow
+documentation: https://awilum.github.io/flextype/downloads/extend/plugins/indexnow
+changelog: https://github.com/flextype-plugins/indexnow/blob/master/CHANGELOG.md
+bugs: https://github.com/flextype-plugins/indexnow/issues
+icon:
+  name: rss
+  set: fontawesome|solid
+category: seo
+license: MIT
+
+dependencies:
+  flextype: "^1.0.0-alpha.2"
