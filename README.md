@@ -19,13 +19,6 @@ The following dependencies need to be downloaded and installed for Indexnow Plug
 1. Download & Install all required dependencies.
 2. Create new folder `project/plugins/indexnow`.
 3. Download [Indexnow Plugin](https://github.com/flextype-plugins/indexnow/releases) and unzip plugin content to the folder `project/plugins/indexnow`.
-4. Generate api token with help of the following console command:
-```
-bin/flextype token:generate
-```
-5. Create a new %API_TOKEN%.txt file in the website root directory with content %API_TOKEN%
-
-> %API_TOKEN% - generated api token
 
 ## Resources
 * [Documentation](https://awilum.github.io/flextype/downloads/extend/plugins/indexnow)
